@@ -14,7 +14,7 @@ EM::run do
     client = EM::WebSocketIO::Client.new(url).connect
 
     client.on :foo do |data|
-      times.push Time.now - push_at
+      times.push Time.now - push_at if push_at
     end
   end
 

@@ -7,6 +7,7 @@ class TestApp < Sinatra::Application
 
   WebSocketIO.on :foo do |data, from|
     p data
+    puts "#{WebSocketIO.sessions.size} clients connecting."
     push :foo, data
   end
 
