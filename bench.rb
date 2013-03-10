@@ -5,12 +5,14 @@ require 'em-websocketio-client'
 
 url = ARGV.shift || 'ws://localhost:8080'
 
+EM.epoll
+EM.set_descriptor_table_size 20000
 push_at = nil
 times = []
 EM::run do
   client = nil
 
-  1000.times do
+  10000.times do
     client = EM::WebSocketIO::Client.new(url).connect
 
     client.on :foo do |data|
