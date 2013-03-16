@@ -1,13 +1,15 @@
 
-class TestApp < Sinatra::Application
+class TestApp < Sinatra::Base
+  register Sinatra::WebSocketIO
+  io = Sinatra::WebSocketIO
 
   get '/' do
     "testapp - sinatra-websocketio v#{Sinatra::WebSocketIO::VERSION}"
   end
 
-  WebSocketIO.on :foo do |data, from|
+  io.on :foo do |data, from|
     p data
-    puts "#{WebSocketIO.sessions.size} clients connecting."
+    puts "#{io.sessions.size} clients connecting."
     push :foo, data
   end
 
