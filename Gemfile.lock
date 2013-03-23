@@ -10,7 +10,10 @@ GEM
     em-websocket-client (0.1.1)
       eventmachine
       libwebsocket
-    event_emitter (0.2.3)
+    em-websocketio-client (0.0.1)
+      em-websocket-client
+      event_emitter
+    event_emitter (0.2.4)
     eventmachine (1.0.3)
     http_parser.rb (0.5.3)
     json (1.7.7)
@@ -33,26 +36,29 @@ GEM
       rack-test
       sinatra (~> 1.3.0)
       tilt (~> 1.3)
-    sinatra-websocketio (0.1.0)
-      em-websocket
-      em-websocket-client
-      event_emitter (>= 0.2.0)
-      eventmachine
-      json
-      rack
-      sinatra
-      sinatra-contrib
-    thin (1.5.0)
+    sinatra-websocketio (0.2.0)
+      em-websocket (>= 0.5.0)
+      event_emitter (>= 0.2.4)
+      eventmachine (>= 1.0.0)
+      json (>= 1.7.0)
+      sinatra (>= 1.3.0)
+      sinatra-contrib (>= 1.3.2)
+      websocket-client-simple
+    thin (1.5.1)
       daemons (>= 1.0.9)
       eventmachine (>= 0.12.6)
       rack (>= 1.0.0)
-    tilt (1.3.5)
+    tilt (1.3.6)
     websocket (1.0.7)
+    websocket-client-simple (0.0.5)
+      event_emitter
+      websocket
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  em-websocketio-client
   eventmachine
   sinatra-websocketio
   thin
